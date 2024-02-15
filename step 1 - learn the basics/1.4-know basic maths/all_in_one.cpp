@@ -80,19 +80,26 @@ bool isPrime(int n)
 
 void isArmstrong(int n)
 {
-    int sum = 0;
+    double sum = 0;
     int temp = n;
-    int N = sizeof(n) - 1;
+    int numDigits = 0;
+
+    // Count the number of digits in n
+    while (temp != 0)
+    {
+        temp /= 10;
+        numDigits++;
+    }
+
+    temp = n;
 
     while (temp != 0)
     {
         int digit = temp % 10;
-        cout << sum << endl;
-        cout << "-" << endl;
-        sum = sum + digit * N;
-        cout << sum << endl;
-        temp =temp/ 10;
+        sum = sum + pow(digit, numDigits);
+        temp /= 10;
     }
+
     if (sum == n)
     {
         cout << n << " is an Armstrong number." << endl;
@@ -102,6 +109,35 @@ void isArmstrong(int n)
         cout << n << " is not an Armstrong number." << endl;
     }
 }
+
+void gcd(int a, int b)
+{
+    // int size = min(n1, n2);
+    // int ans;
+    // for (int i = 1; i <= size; i++)
+    // {
+
+    //     if (n1 % i == 0 && n2 % i == 0)
+    //     {
+    //         ans = i;
+    //     }
+    // }
+    // step 2
+    // while (b != 0)
+    // {
+    //     int temp = b;
+    //     b = a % b;
+    //     a = temp;
+    // }
+    // cout << a;
+
+    if (b == 0)
+    {
+        cout << a;
+    }
+    return gcd(b, a % b);
+}
+
 int main()
 {
     // countDigits(n);
@@ -112,6 +148,8 @@ int main()
 
     // divisor(6);
     // isPrime(5) ? cout << "true \n" : cout << "false \n";
-    isArmstrong(153);
+    // isArmstrong(153);
+    // isArmstrong(1634);
+    gcd(10,4);
     return 0;
 }
