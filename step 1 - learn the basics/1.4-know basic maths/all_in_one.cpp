@@ -61,23 +61,49 @@ void divisor(int n)
     cout << "\n";
 }
 
-void primeNumber(int n)
+bool isPrime(int n)
 {
-    for (int i = 2; i <= n; i++)
+
+    if (n <= 1)
     {
-        if (n % 1 == 0 )
+        return false;
+    }
+    for (int i = 2; i <= n / 2; i++)
+    {
+        if (n % i == 0)
         {
-            cout << "prime number: " << i << endl;
+            return false;
         }
-        else
-        {
-            cout << "Not prime number: " << i << endl;
-        }
+    }
+    return true;
+}
+
+void isArmstrong(int n)
+{
+    int sum = 0;
+    int temp = n;
+    int N = sizeof(n) - 1;
+
+    while (temp != 0)
+    {
+        int digit = temp % 10;
+        cout << sum << endl;
+        cout << "-" << endl;
+        sum = sum + digit * N;
+        cout << sum << endl;
+        temp =temp/ 10;
+    }
+    if (sum == n)
+    {
+        cout << n << " is an Armstrong number." << endl;
+    }
+    else
+    {
+        cout << n << " is not an Armstrong number." << endl;
     }
 }
 int main()
 {
-
     // countDigits(n);
     // cout << "the number of digits in " << n << " is " << countDigits(n);
     // rev_number(n);
@@ -85,6 +111,7 @@ int main()
     // palindrome(n);
 
     // divisor(6);
-    primeNumber(26);
+    // isPrime(5) ? cout << "true \n" : cout << "false \n";
+    isArmstrong(153);
     return 0;
 }
