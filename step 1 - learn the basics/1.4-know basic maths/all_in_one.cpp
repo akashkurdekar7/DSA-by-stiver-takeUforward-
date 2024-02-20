@@ -150,6 +150,6 @@ int main()
     // isPrime(5) ? cout << "true \n" : cout << "false \n";
     // isArmstrong(153);
     // isArmstrong(1634);
-    gcd(10,4);
+    gcd(10, 4);
     return 0;
 }
