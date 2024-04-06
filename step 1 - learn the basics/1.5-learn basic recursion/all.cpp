@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
+#include <cctype>
+
 void recursion(int i, int n)
 {
     if (i < n)
@@ -44,21 +46,55 @@ void reverse_array(int n)
 }
 void palindrome(string s)
 {
-    int i = 1, j = s.length();
-    // for (int i = 0; i < s.length(); i++)
-    while (i < j)
+
+    int i = 0, j = s.length() - 1;
+    while (i <= j)
     {
-        
+        if (s[i] != s[j])
+        {
+            cout << s << false << " no" << endl;
+            return;
+        }
+        i++;
+        j--;
     }
+    cout << s << " " << true << " yes" << endl;
+}
+int fibonacci(int n)
+{
+    // 0 1 1 2 3 5
+    int i = 0, j = 1, sum;
+    while (i <= n)
+    {
+        cout << i << " ";
+        sum = i + j;
+        i = j;
+        j = sum;
+    }
+    cout << endl;
+
+    // step 2
+    // if (n <= 1)
+    // {
+    //     return n;
+    // }
+
+    // Problem broken down into 2 functional calls
+    // and their results combined and returned.
+    // int last = fibonacci(n - 1);
+    // int slast = fibonacci(n - 2);
+
+    // return last + slast;
 }
 int main()
 {
-    int n = 5;
-    string s = "ABC";
+    int n = 4;
+    string s = "Racecar";
     // recursion(n, 1);
     // sum_of_N(n);
     // factorial(n);
     // reverse_array(n);
-    palindrome(s);
+    // palindrome(s);
+    cout << fibonacci(n) << endl;
     return 0;
 }
