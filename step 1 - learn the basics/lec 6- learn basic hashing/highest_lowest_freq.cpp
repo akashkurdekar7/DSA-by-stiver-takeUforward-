@@ -27,9 +27,23 @@ void countFreq_map(int arr[], int n)
     {
         hash[arr[i]]++;
     }
-
+    int maxFreq = INT_MIN, minFreq = INT_MAX;
+    int maxFreqElement, minFreqElement;
     for (auto x : hash)
-        cout << x.first << " " << x.second << endl;
+    // cout << x.first << " " << x.second << endl;
+    {
+        if (x.second > maxFreq)
+        {
+            maxFreq = x.second;
+            maxFreqElement = x.first;
+        }
+        if (x.second < minFreq)
+        {
+            minFreq = x.second;
+            minFreqElement = x.first;
+        }
+    }
+    cout << maxFreqElement << " " << minFreqElement << endl;
 }
 
 int main()
