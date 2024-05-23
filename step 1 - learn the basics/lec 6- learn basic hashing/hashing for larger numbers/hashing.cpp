@@ -3,7 +3,12 @@ using namespace std;
 
 int main()
 {
-
+    // NOTE
+    // first priority will be always to use {unordered_map}
+    // and then
+    // {map}
+    // If unordered_map gives a time limit exceeded error(TLE),
+    // we will then use the map.
     int n;
     cout << "array size: ";
     cin >> n;

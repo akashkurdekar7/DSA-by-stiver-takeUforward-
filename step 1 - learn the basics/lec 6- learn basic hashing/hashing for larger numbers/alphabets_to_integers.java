@@ -23,3 +23,10 @@ class hashing {
         }
     }
 }
+
+// NOTE
+    // first priority will be always to use {unordered_map}
+    // and then
+    // {map}
+    // If unordered_map gives a time limit exceeded error(TLE),
+    // we will then use the map.
