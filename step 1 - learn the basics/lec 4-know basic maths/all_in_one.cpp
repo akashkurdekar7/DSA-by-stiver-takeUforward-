@@ -90,9 +90,7 @@ void isArmstrong(int n)
         temp /= 10;
         numDigits++;
     }
-
     temp = n;
-
     while (temp != 0)
     {
         int digit = temp % 10;
@@ -146,10 +144,10 @@ int main()
     // cout << "the reverse of digits " << n << " is " << rev_number(n);
     // palindrome(n);
 
-    // divisor(6);
+    divisor(5);
     // isPrime(5) ? cout << "true \n" : cout << "false \n";
     // isArmstrong(153);
     // isArmstrong(1634);
-    gcd(10, 4);
+    // gcd(10, 4);
     return 0;
 }
