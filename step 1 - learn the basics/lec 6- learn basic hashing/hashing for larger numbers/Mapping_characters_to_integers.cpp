@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
@@ -7,10 +7,10 @@ int main()
     cin >> s;
 
     // precompute
-    int hash[26] = {0};
+    map<char, int> mp;
     for (int i = 0; i < s.size(); i++)
     {
-        hash[s[i] - 'a']++;
+        mp[s[i] - 'a']++;
     }
 
     int q;
@@ -19,7 +19,8 @@ int main()
     {
         char character;
         cin >> character;
-        cout << hash[character - 'a'] << " ";
+        // fetch
+        cout << mp[character - 'a'] << " ";
         // this here access the frequency from the hashed array
         // hash[26]={0}
     }

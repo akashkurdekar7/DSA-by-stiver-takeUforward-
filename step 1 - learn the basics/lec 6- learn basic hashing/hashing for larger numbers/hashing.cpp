@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
@@ -18,12 +18,13 @@ int main()
     {
         cout << arr[i] << " ";
     }
+    cout << endl;
 
     // precompute
-    int hash[13] = {0};
+    map<int, int> mp;
     for (int i = 0; i < n; i++)
     {
-        hash[arr[i]] += 1;
+        mp[arr[i]]++;
     }
 
     int q;
@@ -32,7 +33,7 @@ int main()
     {
         int number;
         cin >> number;
-        cout << hash[number] << " ";
+        cout << mp[number] << " ";
     }
 
     return 0;
