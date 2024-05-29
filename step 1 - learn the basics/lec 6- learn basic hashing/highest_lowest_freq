@@ -1,9 +1,8 @@
 import java.util.*;
 
-public class tUf {
+public class TUF {
 
     public static void main(String args[]) {
-
         int arr[] = {10, 5, 10, 15, 10, 5};
         int n = arr.length;
         countFreq(arr, n);
