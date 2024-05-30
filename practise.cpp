@@ -151,9 +151,23 @@ int findSetBitPosition(int N)
     cout << position;
 }
 
+int watermelon(int n)
+{
+    if (n >= 2 && n % 2 == 0)
+    {
+        cout << "Yes" << endl;
+    }
+    else
+    {
+        cout << "No" << endl;
+    }
+}
+
 int main()
 {
-    int n = 4; // 3
+    int n; // 3
+    cout << "n: ";
+    cin >> n;
     // string s = "A man, a plan, a canal: Panama";
     // palindrome(s);
     // cout << "F(" << n << ") = " << Fibonacci(n) << endl;
@@ -165,6 +179,7 @@ int main()
 
     // cout << "reversed " << bitset<32>(reversed) << endl;
     // check_armstrong(n);
-    findSetBitPosition(n);
+    // findSetBitPosition(n);
+    watermelon(n);
     return 0;
 }
