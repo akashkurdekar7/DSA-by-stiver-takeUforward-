@@ -8,6 +8,34 @@ void output(int arr[], int n)
         cout << arr[k] << " ";
     }
 }
+
+void MergeSort(int arr[], int n)
+{
+    int low = n / 2;
+    int high = n / 2;
+
+    if (low >= high)
+        return;
+
+    int mid = (low + high) / 2;
+
+    // left halves
+
+    // right halves
+
+    // merge
+
+    for (int i = 0; i <= mid + 1; i++)
+    {
+        for (int j = mid; j <= high; j++)
+        {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+    }
+}
+
 int main()
 {
     int n;
@@ -18,7 +46,9 @@ int main()
     {
         cin >> arr[i];
     }
-
+    MergeSort(arr, low, mid);
+    MergeSort(arr, mid + 1, high);
+    Merge(arr, n);
     output(arr, n);
     return 0;
 }
