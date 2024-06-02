@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Sorting_Techniques {
+public class Sorting_Techniques_1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the number of elements: ");
@@ -12,8 +12,8 @@ public class Sorting_Techniques {
         for (int i = 0; i < n; i++) {
             System.out.println(arr[i]);
         }
-        // selectionSort(arr, n);
-        // bubbleSort(arr, n);
+        selectionSort(arr, n);
+        bubbleSort(arr, n);
         insertionSort(arr, n);
         output(arr, n);
     }
@@ -27,30 +27,30 @@ public class Sorting_Techniques {
     }
 
     // selection sort
-    // static void selectionSort(int[] arr, int n) {
-    // for (int i = 0; i < n; i++) {
-    // for (int j = 0; j < n; j++) {
-    // if (arr[i] < arr[j]) {
-    // int temp = arr[i];
-    // arr[i] = arr[j];
-    // arr[j] = temp;
-    // }
-    // }
-    // }
-    // }
+    static void selectionSort(int[] arr, int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (arr[i] < arr[j]) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+    }
 
     // bubble sort
-    // static void bubbleSort(int[] arr, int n) {
-    // for (int i = n - 1; i >= 0; i--) {
-    // for (int j = 0; j <= i - 1; j++) {
-    // if (arr[j] > arr[j + 1]) {
-    // int temp = arr[j + 1];
-    // arr[j + 1] = arr[j];
-    // arr[j] = temp;
-    // }
-    // }
-    // }
-    // }
+    static void bubbleSort(int[] arr, int n) {
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = 0; j <= i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j + 1];
+                    arr[j + 1] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+    }
 
     // insertion sort
     static void insertionSort(int[] arr, int n) {
