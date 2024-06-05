@@ -1,54 +1,72 @@
 #include <bits/stdc++.h>
 using namespace std;
-void output(int arr[], int n)
+void output(const vector<int> &arr, int n)
 {
-    cout << "Elements Ouput: ";
+    cout << "Sorted Elements: ";
     for (int k = 0; k < n; k++)
     {
         cout << arr[k] << " ";
     }
+    cout << endl;
 }
 
-void MergeSort(int arr[], int n)
+void merge(vector<int> &arr, int low, int mid, int high)
 {
-    int low = n / 2;
-    int high = n / 2;
-
-    if (low >= high)
-        return;
-
-    int mid = (low + high) / 2;
-
-    // left halves
-
-    // right halves
-
-    // merge
-
-    for (int i = 0; i <= mid + 1; i++)
+    vector<int> temp;
+    int left = low;
+    int right = mid + 1;
+    while (left <= mid && right <= high)
     {
-        for (int j = mid; j <= high; j++)
+        if (arr[left] <= arr[right])
         {
-            int temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
+            temp.push_back(arr[left]);
+            left++;
+        }
+        else
+        {
+            temp.push_back(arr[right]);
+            right++;
         }
     }
+    while (left <= mid)
+    {
+        temp.push_back(arr[left]);
+        left++;
+    }
+    while (right <= high)
+    {
+        temp.push_back(arr[right]);
+        right++;
+    }
+    for (int i = low; i <= high; i++)
+    {
+        arr[i] = temp[i - low];
+    }
+}
+
+void mergeSort(vector<int> &arr, int low, int high)
+{
+    if (low >= high)
+        return;
+    int mid = (low + high) / 2;
+    mergeSort(arr, low, mid);
+    mergeSort(arr, mid + 1, high);
+    merge(arr, low, mid, high);
 }
 
 int main()
 {
     int n;
+    cout << "Enter number of elements: ";
     cin >> n;
-    int arr[n];
-    cout << "Elements: ";
+    vector<int> arr(n);
+    cout << "Enter the Array Elements: ";
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
-    MergeSort(arr, low, mid);
-    MergeSort(arr, mid + 1, high);
-    Merge(arr, n);
+    int low = 0, high = n - 1;
+    mergeSort(arr, low, high);
     output(arr, n);
     return 0;
 }
