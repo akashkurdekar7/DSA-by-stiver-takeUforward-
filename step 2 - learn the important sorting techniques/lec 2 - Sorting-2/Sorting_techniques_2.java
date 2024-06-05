@@ -21,43 +21,44 @@ public class Sorting_techniques_2 {
         for (int i = 0; i < n; i++) {
             System.out.println(arr[i]);
         }
+        System.out.println();
     }
 
-    static void mergeSort(int arr[], int low, int high) {
-        // also called as divide and conquers algorithm
-        if (low >= high)
-            return;
-        int mid = (low + high) / 2;
-        mergeSort(arr, low, mid);
-        mergeSort(arr, mid + 1, high);
-        merge(arr, low, mid, high);
+    static void mergeSort(int[] arr, int low, int high) {
+        // also called as divide and conquers/merge algorithm
+        if (low < high) {
+            int mid = (low + high) / 2;
+            mergeSort(arr, low, mid);
+            mergeSort(arr, mid + 1, high);
+            merge(arr, low, mid, high);
+        }
     }
 
-    static void merge(int arr[], int low, int mid, int high) {
+    static void merge(int[] arr, int low, int mid, int high) {
         // also called as divide and conquers algorithm
-        int[] temp = new int[high + 1];
+        ArrayList<Integer> temp = new ArrayList<>();
         int left = low;
         int right = mid + 1;
         while (left <= mid && right <= high) {
             if (arr[left] <= arr[right]) {
-                temp[arr[left]] = sc.nextInt();
+                temp.add(arr[left]);
                 left++;
             } else {
-                temp[arr[right]] = sc.nextInt();
+                temp.add(arr[right]);
                 right++;
             }
         }
         while (left <= mid) {
-            temp[arr[left]] = sc.nextInt();
+            temp.add(arr[left]);
             left++;
 
         }
         while (right <= high) {
-            temp[arr[right]] = sc.nextInt();
+            temp.add(arr[right]);
             right++;
         }
         for (int i = low; i <= high; i++) {
-            arr[i] = temp[i - low];
+            arr[i] = temp.get(i - low);
         }
     }
 }
