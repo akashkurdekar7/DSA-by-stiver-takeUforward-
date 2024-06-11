@@ -70,6 +70,21 @@ void recursiveBubbleSort(vector<int> &arr, int n)
     recursiveBubbleSort(arr, n - 1);
 }
 
+void recursiveInsertionSort(vector<int> &arr, int i, int n)
+{
+    if (i == n)
+        return;
+    int j = i;
+    while (j > 0 && arr[j - 1] > arr[j])
+    {
+        int temp = arr[j - 1];
+        arr[j - 1] = arr[j];
+        arr[j] = temp;
+        j--;
+    }
+    recursiveInsertionSort(arr, i + 1, n);
+}
+
 int main()
 {
     int n;
@@ -83,7 +98,8 @@ int main()
     }
     int low = 0, high = n - 1;
     // mergeSort(arr, low, high);
-    recursiveBubbleSort(arr, n);
+    // recursiveBubbleSort(arr, n);
+    recursiveInsertionSort(arr, 0, n);
     output(arr, n);
     return 0;
 }

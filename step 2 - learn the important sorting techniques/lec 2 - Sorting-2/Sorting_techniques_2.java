@@ -12,7 +12,8 @@ public class Sorting_techniques_2 {
         int low = 0;
         int high = n - 1;
         // mergeSort(arr, low, high);
-        recursiveBubbleSort(arr, n);
+        // recursiveBubbleSort(arr, n);
+        recursiveInsertionSort(arr, 0, n);
         output(arr, n);
     }
 
@@ -74,5 +75,18 @@ public class Sorting_techniques_2 {
             }
         }
         recursiveBubbleSort(arr, n - 1);
+    }
+
+    static void recursiveInsertionSort(int[] arr, int i, int n) {
+        if (i == n)
+            return;
+        int j = i;
+        while (j > 0 && arr[j - 1] > arr[j]) {
+            int temp = arr[j - 1];
+            arr[j - 1] = arr[j];
+            arr[j] = temp;
+            j--;
+        }
+        recursiveInsertionSort(arr, i + 1, n);
     }
 }
