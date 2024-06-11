@@ -70,7 +70,8 @@ int main()
 
     // selectionSort(a, n);
     // bubbleSort(a, n);
-    InsertionSort(a, n);
+    // InsertionSort(a, n);
+
     output(a, n);
     return 0;
 }

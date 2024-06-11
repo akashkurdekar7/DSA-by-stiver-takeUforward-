@@ -13,7 +13,8 @@ public class Sorting_techniques_2 {
         int high = n - 1;
         // mergeSort(arr, low, high);
         // recursiveBubbleSort(arr, n);
-        recursiveInsertionSort(arr, 0, n);
+        // recursiveInsertionSort(arr, 0, n);
+        QuickSort(arr, low, high);
         output(arr, n);
     }
 
@@ -88,5 +89,36 @@ public class Sorting_techniques_2 {
             j--;
         }
         recursiveInsertionSort(arr, i + 1, n);
+    }
+
+    static void QuickSort(int[] arr, int low, int high) {
+        if (low < high) {
+            int p_Index = partition(arr, low, high);
+            QuickSort(arr, low, p_Index - 1);
+            QuickSort(arr, p_Index + 1, high);
+        }
+    }
+
+    static int partition(int[] arr, int low, int high) {
+        int pivot = arr[low];
+        int i = low;
+        int j = high;
+        while (i < j) {
+            while (arr[i] <= pivot && i < high) {
+                i++;
+            }
+            while (arr[j] > pivot && j > low) {
+                j--;
+            }
+            if (i < j) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        int temp = arr[low];
+        arr[low] = arr[j];
+        arr[j] = temp;
+        return j;
     }
 }

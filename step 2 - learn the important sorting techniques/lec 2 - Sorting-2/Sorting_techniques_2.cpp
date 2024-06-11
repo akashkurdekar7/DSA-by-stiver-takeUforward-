@@ -85,6 +85,41 @@ void recursiveInsertionSort(vector<int> &arr, int i, int n)
     recursiveInsertionSort(arr, i + 1, n);
 }
 
+int partition(vector<int> &arr, int low, int high)
+{
+    int pivot = arr[low];
+    int i = low;
+    int j = high;
+    while (i < j)
+    {
+        while (arr[i] <= pivot && i <= high - 1)
+        {
+            i++;
+        }
+        while (arr[j] > pivot && j >= low + 1)
+        {
+            j--;
+        }
+        if (i < j)
+        {
+            swap(arr[i], arr[j]);
+        }
+    }
+    swap(arr[low], arr[j]);
+    return j;
+}
+
+void QuickSort(vector<int> &arr, int low, int high)
+{
+    if (low < high)
+    {
+        int p_Index = partition(arr, low, high);
+        cout << "index partition : " << p_Index << endl;
+        QuickSort(arr, low, p_Index - 1);
+        QuickSort(arr, p_Index + 1, high);
+    }
+}
+
 int main()
 {
     int n;
@@ -99,7 +134,8 @@ int main()
     int low = 0, high = n - 1;
     // mergeSort(arr, low, high);
     // recursiveBubbleSort(arr, n);
-    recursiveInsertionSort(arr, 0, n);
+    // recursiveInsertionSort(arr, 0, n);
+    QuickSort(arr, low, high);
     output(arr, n);
     return 0;
 }
