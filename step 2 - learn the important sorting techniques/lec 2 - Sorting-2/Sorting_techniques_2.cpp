@@ -54,6 +54,22 @@ void mergeSort(vector<int> &arr, int low, int high)
     merge(arr, low, mid, high);
 }
 
+void recursiveBubbleSort(vector<int> &arr, int n)
+{
+    if (n == 1)
+        return;
+    for (int j = 0; j <= n - 2; j++)
+    {
+        if (arr[j] > arr[j + 1])
+        {
+            int temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+        }
+    }
+    recursiveBubbleSort(arr, n - 1);
+}
+
 int main()
 {
     int n;
@@ -66,7 +82,8 @@ int main()
         cin >> arr[i];
     }
     int low = 0, high = n - 1;
-    mergeSort(arr, low, high);
+    // mergeSort(arr, low, high);
+    recursiveBubbleSort(arr, n);
     output(arr, n);
     return 0;
 }

@@ -11,7 +11,8 @@ public class Sorting_techniques_2 {
         }
         int low = 0;
         int high = n - 1;
-        mergeSort(arr, low, high);
+        // mergeSort(arr, low, high);
+        recursiveBubbleSort(arr, n);
         output(arr, n);
     }
 
@@ -60,5 +61,18 @@ public class Sorting_techniques_2 {
         for (int i = low; i <= high; i++) {
             arr[i] = temp.get(i - low);
         }
+    }
+
+    static void recursiveBubbleSort(int[] arr, int n) {
+        if (n == 1)
+            return;
+        for (int j = 0; j <= n - 2; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+        recursiveBubbleSort(arr, n - 1);
     }
 }
