@@ -117,7 +117,7 @@ void check_armstrong(int n)
         temp /= 10;
         digits++;
     }
-    cout << digits;
+    // cout << digits;
     temp = n;
     while (temp != 0)
     {
@@ -135,13 +135,13 @@ void check_armstrong(int n)
     }
 }
 
-int findSetBitPosition(int N)
+void findSetBitPosition(int N)
 {
-    if (N == 0)
-        return -1; // If N is 0, return -1 as there are no set bits
-    if ((N & (N - 1)) != 0)
-        return -1; // If N has more than one set bit, return -1
-
+    if (N == 0 || (N & (N - 1)) != 0)
+    {
+        cout << -1 << endl; // If N is 0 or has more than one set bit, return -1
+        return;
+    }
     int position = 1;
     while ((N & 1) != 1)
     {
@@ -151,7 +151,7 @@ int findSetBitPosition(int N)
     cout << position;
 }
 
-int watermelon(int n)
+void watermelon(int n)
 {
     if (n >= 2 && n % 2 == 0)
     {
@@ -165,9 +165,9 @@ int watermelon(int n)
 
 int main()
 {
-    int n; // 3
-    cout << "n: ";
-    cin >> n;
+    int n = 5; // 3
+    // cout << "n: ";
+    // cin >> n;
     // string s = "A man, a plan, a canal: Panama";
     // palindrome(s);
     // cout << "F(" << n << ") = " << Fibonacci(n) << endl;
@@ -180,6 +180,7 @@ int main()
     // cout << "reversed " << bitset<32>(reversed) << endl;
     // check_armstrong(n);
     // findSetBitPosition(n);
-    watermelon(n);
+    // watermelon(n);
+
     return 0;
 }
