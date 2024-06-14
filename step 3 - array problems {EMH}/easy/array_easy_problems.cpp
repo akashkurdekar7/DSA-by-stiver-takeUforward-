@@ -39,7 +39,7 @@ void Second_largest_lowest_element(vector<int> &arr, int n)
     int small = __INT_MAX__;
     int second_small = __INT_MAX__;
     int highest = __INT_MAX__;
-    int second _highest = __INT_MAX__;
+    int second_highest = __INT_MAX__;
 }
 
 int main()
