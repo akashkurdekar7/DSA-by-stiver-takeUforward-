@@ -3,7 +3,17 @@ using namespace std;
 void output(vector<int> &arr, int n)
 {
     for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
+    {
+        if (arr[i] == arr[i + 1])
+        {
+            cout << "_" << " ";
+        }
+        else
+        {
+            cout << arr[i] << " ";
+        }
+    }
+    cout << endl;
 }
 
 void largest_lowest_element(vector<int> &arr, int n)
@@ -64,8 +74,9 @@ void sort(vector<int> &arr, int n)
 {
     for (int i = 0; i < n - 1; i++)
     {
-        for (int j = 0; j <= n - i - 1; j++)
+        for (int j = 0; j < n - i - 1; j++)
         {
+            // Swap if the current element is greater than the next element
             if (arr[j] > arr[j + 1])
             {
                 int temp = arr[j];
@@ -104,12 +115,12 @@ int main()
     }
     // largest_lowest_element(arr, n);
     // Second_largest_lowest_element(arr, n);
-    bool ans = check_sorted(arr, n);
-    if (ans)
-        cout << "true" << endl;
-    else
-        cout << "false" << endl;
-    // sort(arr, n);
+    // bool ans = check_sorted(arr, n);
+    // if (ans)
+    //     cout << "true" << endl;
+    // else
+    //     cout << "false" << endl;
+    sort(arr, n);
     output(arr, n);
     return 0;
 }
