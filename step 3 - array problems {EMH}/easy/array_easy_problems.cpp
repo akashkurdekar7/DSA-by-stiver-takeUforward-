@@ -102,6 +102,24 @@ bool check_sorted(vector<int> &arr, int n)
     return true;
 }
 
+void duplicates(vector<int> &arr, int n)
+{
+    int i = 0;
+    while (i < n)
+    {
+        if (arr[i] == arr[i])
+        {
+
+            i++;
+        }
+        else
+        {
+            arr[i] = arr[i];
+            i++;
+        }
+    }
+}
+
 int main()
 {
     int n;
@@ -120,7 +138,8 @@ int main()
     //     cout << "true" << endl;
     // else
     //     cout << "false" << endl;
-    sort(arr, n);
+    duplicates(arr, n);
+    // sort(arr, n);
     output(arr, n);
     return 0;
 }
