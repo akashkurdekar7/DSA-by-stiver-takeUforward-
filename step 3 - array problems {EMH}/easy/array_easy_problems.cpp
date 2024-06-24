@@ -1,17 +1,13 @@
 #include <bits/stdc++.h>
+#include <vector>
+#include <unordered_set>
 using namespace std;
-void output(vector<int> &arr, int n)
+
+void output(vector<int> &arr)
 {
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < arr.size(); i++)
     {
-        if (arr[i] == arr[i + 1])
-        {
-            cout << "_" << " ";
-        }
-        else
-        {
-            cout << arr[i] << " ";
-        }
+        cout << arr[i] << " ";
     }
     cout << endl;
 }
@@ -102,22 +98,57 @@ bool check_sorted(vector<int> &arr, int n)
     return true;
 }
 
-void duplicates(vector<int> &arr, int n)
+int duplicates(vector<int> &arr, int n)
 {
-    int i = 0;
-    while (i < n)
-    {
-        if (arr[i] == arr[i])
-        {
+    if (n < 2)
+        return n;
 
-            i++;
-        }
-        else
-        {
-            arr[i] = arr[i];
-            i++;
-        }
+    set<int> array;
+    for (int i = 0; i < n; i++)
+    {
+        array.insert(arr[i]);
     }
+    int j = 0;
+    for (int x : array)
+    {
+        arr[j++] = x;
+    }
+
+    return j;
+
+    // unordered_set<int> array;
+    // vector<int> dup;
+    // int count = 0;
+
+    // for (int i = 0; i < n; i++)
+    // {
+    //     if (array.find(arr[i]) != array.end())
+    //     {
+    //         count++;
+    //         dup.push_back(arr[i]);
+    //     }
+    //     else
+    //     {
+    //         cout << arr[i] << " ";
+    //         array.insert(arr[i]);
+    //     }
+    // }
+    // for (int k = 0; k < count; k++)
+    // {
+    //     cout << "_" << " ";
+    // }
+    // cout << endl;
+
+    // int i = 0;
+    // for (int j = 1; j < n; j++)
+    // {
+    //     if (arr[i] != arr[j])
+    //     {
+    //         i++;
+    //         arr[i] = arr[j];
+    //     }
+    // }
+    // return i + 1;
 }
 
 int main()
@@ -138,8 +169,17 @@ int main()
     //     cout << "true" << endl;
     // else
     //     cout << "false" << endl;
-    duplicates(arr, n);
+    int newarr = duplicates(arr, n);
+
+    for (int i = 0; i < newarr; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    for (int i = newarr; i < n; i++)
+    {
+        cout << "_" << ",";
+    }
     // sort(arr, n);
-    output(arr, n);
+    // output(arr);
     return 0;
 }
